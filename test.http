@@ -1,0 +1,12 @@
+### Получить токен
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test1@example.com",
+  "password": "password123"
+}
+
+### Проверить me (вставь токен)
+GET http://localhost:8000/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyODI1MX0.Qsn47kBfo2N5JBWd-PpgBJGHDlmw4boS9rVJ42cAiGI

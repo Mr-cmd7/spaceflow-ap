@@ -1,0 +1,43 @@
+### 1. Сначала логинимся и получаем токен
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test1@example.com",
+  "password": "password123"
+}
+
+### 2. Создать новое помещение (POST) - вставь токен из шага 1
+POST http://localhost:8000/api/rooms/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyOTQ3MH0.nD7ppRJz-7X8ep1oL6FLLplQkF7wG_9pAK133dIoUWY
+
+{
+  "name": "Коворкинг",
+  "description": "Открытое пространство для работы",
+  "capacity": 30,
+  "equipment": "Столы, стулья, Wi-Fi, розетки",
+  "image_url": "https://example.com/coworking.jpg"
+}
+
+### 3. Получить список всех помещений (GET)
+GET http://localhost:8000/api/rooms/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyOTA3N30.AUExLkmamQvUhpjmkns5iQq3EF0uujPIDMp9NtmCDvc
+
+### 4. Получить конкретное помещение по ID (замени 1 на реальный id)
+GET http://localhost:8000/api/rooms/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyOTA3N30.AUExLkmamQvUhpjmkns5iQq3EF0uujPIDMp9NtmCDvc
+
+### 5. Обновить помещение (PUT) - замени 1 на реальный id
+PUT http://localhost:8000/api/rooms/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyOTA3N30.AUExLkmamQvUhpjmkns5iQq3EF0uujPIDMp9NtmCDvc
+
+{
+  "name": "Коворкинг (обновлённый)",
+  "capacity": 35
+}
+
+### 6. Удалить помещение (DELETE) - замени 1 на реальный id
+DELETE http://localhost:8000/api/rooms/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImV4cCI6MTc3MzMyOTA3N30.AUExLkmamQvUhpjmkns5iQq3EF0uujPIDMp9NtmCDvc
